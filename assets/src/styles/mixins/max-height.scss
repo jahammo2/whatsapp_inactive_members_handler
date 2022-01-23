@@ -1,0 +1,5 @@
+@mixin max-height($value) {
+  @media screen and (max-height: $value) {
+    @content;
+  }
+}

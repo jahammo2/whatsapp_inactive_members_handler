@@ -1,0 +1,28 @@
+input,
+textarea {
+  border-width: 0;
+
+  &:focus {
+    box-shadow: 0 4px 8px $color--gray;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $color--gray-xlight;
+  }
+}
+
+input {
+  border-radius: 0;
+}
+
+input[type="search"],
+input[type="text"],
+textarea[type="textarea"] {
+  -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+}
+
+textarea {
+  margin-bottom: 0;
+  vertical-align: bottom;
+}

@@ -1,0 +1,7 @@
+.Root {
+  @include flex-row-start;
+}
+
+.Value {
+  margin-right: $spacing--xxs;
+}

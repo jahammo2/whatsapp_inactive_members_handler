@@ -1,0 +1,7 @@
+@mixin base-text-properties {
+  color: $color--black;
+  font-family: "Helvetica", serif;
+  font-size: $font-size--med;
+  font-weight: normal;
+  line-height: $font-size--med * 1.5;
+}

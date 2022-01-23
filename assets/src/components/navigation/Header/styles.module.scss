@@ -1,0 +1,14 @@
+.List {
+  @include flex-row-start;
+  background: $color--white;
+  box-shadow: 1px 1px $color--gray-xlight;
+  position: fixed;
+  height: 30px;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.ListItem {
+  margin-right: $spacing--xxs;
+}

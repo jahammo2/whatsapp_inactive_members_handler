@@ -22,11 +22,7 @@ config :whatsapp_inactive_members_handler, WhatsappInactiveMembersHandlerWeb.End
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "ngaWOgkq+LiFCsqeh0h44cUfsgeYB0k1eedAt3/QgSQdfkvH0yWffEX5WDowj7m5",
-  watchers: [
-    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
-  ]
+  secret_key_base: "ngaWOgkq+LiFCsqeh0h44cUfsgeYB0k1eedAt3/QgSQdfkvH0yWffEX5WDowj7m5"
 
 # ## SSL Support
 #
