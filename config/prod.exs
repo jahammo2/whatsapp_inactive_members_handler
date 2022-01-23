@@ -21,7 +21,7 @@ config :logger, level: :info
 #
     config :whatsapp_inactive_members_handler, WhatsappInactiveMembersHandlerWeb.Endpoint,
       url: [scheme: "https", host: "young-citadel-22408.herokuapp.com", port: 443],
-      force_ssl: [rewrite_on: [:x_forwarded_proto]],
+      force_ssl: [rewrite_on: [:x_forwarded_proto]]
 #
 # The `cipher_suite` is set to `:strong` to support only the
 # latest and more secure SSL ciphers. This means old browsers
