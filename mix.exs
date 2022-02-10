@@ -72,8 +72,8 @@ defmodule WhatsappInactiveMembersHandler.MixProject do
   end
 
   defp deploy_frontend(_) do
-    Mix.shell().cmd("npm install", [])
-    Mix.shell().cmd("npm run deploy", [])
+    Mix.shell().cmd("yarn install", [])
+    Mix.shell().cmd("yarn deploy:frontend", [])
   end
 
   def foo() do

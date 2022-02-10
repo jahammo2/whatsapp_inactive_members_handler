@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --config assets/webpack.config.js",
-    "deploy": "webpack --mode production --config assets/webpack.config.js",
+    "deploy": "eval mix assets.deploy",
+    "deploy:frontend": "webpack --mode production --config assets/webpack.config.js",
     "lint": "npm run lint:js && npm run lint:styles",
     "lint-fix": "npm run lint:js-fix && npm run lint:styles-fix",
     "lint:js": "eslint 'assets/src/**/*.{js,jsx}'",
