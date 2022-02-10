@@ -3,13 +3,8 @@ const path = require('path');
 
 const srcDir = path.resolve(__dirname, './src');
 
-console.log('__dirname', __dirname);
-console.log('srcDir', srcDir);
-
 module.exports = (env, options) => {
   const devMode = options.mode !== 'production';
-  console.log('__dirname', __dirname);
-  console.log('srcDir', srcDir);
 
   return {
     entry: srcDir + '/index.jsx',
