@@ -7,6 +7,7 @@
 * [x] deploy successful frontend code
 * [ ] rewrite src to its own file structure
 * [ ] get FE tests passing
+* [ ] get styles to pass between prod and dev
 * [ ] decide on assets/js and assets/vendor
 * [ ] write 1 exunit test for something basic
 * [ ] write 1 Cypress test

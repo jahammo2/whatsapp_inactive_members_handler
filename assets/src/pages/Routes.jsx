@@ -9,8 +9,6 @@ function Routes() {
   /* eslint-disable max-len */
   return (
     <>
-      <Header />
-
       <Switch>
         <Route component={ CostingRequestsAll } exact path={ ['/', '/costing-requests'] } />
       </Switch>
