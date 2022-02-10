@@ -26,3 +26,11 @@
 ### Build the frontend
 
 `yarn build`
+
+### Watch the frontend
+
+In a separate tab, `yarn watch`
+
+### To deploy
+
+`git push heroku master`

@@ -64,7 +64,15 @@ defmodule WhatsappInactiveMembersHandler.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      "assets.deploy": [
+        &deploy_frontend/1,
+        "phx.digest"
+      ]
     ]
+  end
+
+  defp deploy_frontend() do
+    Mix.shell().cmd("yarn install", [])
+    Mix.shell().cmd("yarn deploy", [])
   end
 end
