@@ -27,7 +27,7 @@ module.exports = (env, options) => {
             {
               loader  : 'sass-resources-loader',
               options : {
-                resources: srcDir + '/styles/globally-available.scss',
+                resources: srcDir + '/ui/styles/globally-available.scss',
               },
             },
           ]

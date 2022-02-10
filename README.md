@@ -4,8 +4,9 @@
 
 * [x] run a successful frontend build
 * [x] start a successful frontend dev server
-* [ ] deploy successful frontend code
+* [x] deploy successful frontend code
 * [ ] rewrite src to its own file structure
+* [ ] get FE tests passing
 * [ ] decide on assets/js and assets/vendor
 * [ ] write 1 exunit test for something basic
 * [ ] write 1 Cypress test
