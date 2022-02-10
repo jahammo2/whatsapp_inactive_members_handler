@@ -9,9 +9,10 @@ import * as costingRequestsActionCreators from 'src/actions/costingRequests';
 import CostingRequestsAll from 'src/components/costingRequests/All';
 
 function FunctionalCostingRequests(props) {
-  useEffect(() => props.actions.costingRequests.getAll(), []);
+  // useEffect(() => props.actions.costingRequests.getAll(), []);
 
-  return <CostingRequestsAll { ...props } />;
+  return <div>BAR okay</div>
+  // return <CostingRequestsAll { ...props } />;
 }
 
 function mapStateToProps({ costingRequests }) {

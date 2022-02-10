@@ -1,19 +1,28 @@
 # WhatsappInactiveMembersHandler
 
-To start your Phoenix server:
+## TODOS
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+* [x] run a successful frontend build
+* [x] start a successful frontend dev server
+* [ ] deploy successful frontend code
+* [ ] rewrite src to its own file structure
+* [ ] decide on assets/js and assets/vendor
+* [ ] write 1 exunit test for something basic
+* [ ] write 1 Cypress test
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+* [ ] write basic documentation for getting started
+* [ ] turn this into a boilerplate
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+* [ ] write 1 test taking .txt file contents and doing things
+* [ ] write tests for all backend work
 
-## Learn more
+### Questions
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+* What can outside users do?
+* What instructions will I add to the frontend
+
+## How to...
+
+### Build the frontend
+
+`yarn build`

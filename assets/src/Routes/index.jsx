@@ -11,9 +11,10 @@ function Routes() {
     <>
       <Header />
 
+      <div>FOO</div>
+
       <Switch>
         <Route component={ CostingRequestsAll } exact path={ ['/', '/costing-requests'] } />
-        <Route component={ CostingRequestsNew } exact path="/costing-requests/new" />
       </Switch>
     </>
   );
