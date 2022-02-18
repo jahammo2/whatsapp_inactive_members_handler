@@ -28,6 +28,7 @@ export default function (state = INITIAL_STATE, { payload, type }) {
       return state.withMutations(map => {
         const { costingRequests } = payload;
 
+        console.log('costingRequest payload', costingRequest);
         map.set('isActive', false);
         map.setIn(['loaded', 'costingRequests'], Immutable.fromJS(costingRequests));
       });
