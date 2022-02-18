@@ -6,15 +6,16 @@
     "build": "webpack --config assets/webpack.config.js",
     "deploy": "eval mix assets.deploy",
     "deploy:frontend": "webpack --mode production --config assets/webpack.config.js",
+
     "lint": "npm run lint:js && npm run lint:styles",
     "lint-fix": "npm run lint:js-fix && npm run lint:styles-fix",
     "lint:js": "eslint 'assets/src/**/*.{js,jsx}'",
     "lint:js-fix": "eslint 'assets/src/**/*.{js,jsx}' --fix",
     "lint:styles": "stylelint 'assets/src/**/*.{css,scss}'",
     "lint:styles-fix": "stylelint --fix 'assets/src/**/*.{css,scss}'",
-    "start": "webpack serve --config assets/webpack.config.js --port 8081",
+
     "test": "jest --config assets/support/jest/base.js",
-    "test:watch": "jest --config assets/support/jest/base.js --watchAll",
+
     "watch": "webpack --mode development --watch --config assets/webpack.config.js"
   },
   "dependencies": {

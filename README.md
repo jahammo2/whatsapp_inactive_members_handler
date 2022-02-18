@@ -5,8 +5,9 @@
 * [x] run a successful frontend build
 * [x] start a successful frontend dev server
 * [x] deploy successful frontend code
-* [ ] rewrite src to its own file structure
-* [ ] get FE tests passing
+* [x] rewrite src to its own file structure
+* [x] get FE tests passing
+* [x] remove unnecessary scripts in package.json
 * [ ] get styles to pass between prod and dev
 * [ ] decide on assets/js and assets/vendor
 * [ ] write 1 exunit test for something basic
@@ -16,6 +17,8 @@
 * [ ] turn this into a boilerplate
 
 * [ ] write 1 test taking .txt file contents and doing things
+* [ ] do a little product planning
+* [ ] rewrite all "costing request" stuff over to relevant stuff
 * [ ] write tests for all backend work
 
 ### Questions
