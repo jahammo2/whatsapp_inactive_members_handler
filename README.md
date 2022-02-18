@@ -8,7 +8,7 @@
 * [x] rewrite src to its own file structure
 * [x] get FE tests passing
 * [x] remove unnecessary scripts in package.json
-* [ ] get styles to pass between prod and dev
+* [x] get styles to pass between prod and dev
 * [ ] decide on assets/js and assets/vendor
 * [ ] write 1 exunit test for something basic
 * [ ] write 1 Cypress test
