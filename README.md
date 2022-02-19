@@ -9,8 +9,8 @@
 * [x] get FE tests passing
 * [x] remove unnecessary scripts in package.json
 * [x] get styles to pass between prod and dev
-* [ ] decide on assets/js and assets/vendor
-* [ ] write 1 exunit test for something basic
+* [x] decide on assets/js and assets/vendor
+* [x] write 1 exunit test for something basic
 * [ ] write 1 Cypress test
 
 * [ ] write basic documentation for getting started
@@ -39,3 +39,9 @@ In a separate tab, `yarn watch`
 ### To deploy
 
 `git push heroku master`
+
+### Run E2E tests
+
+1. `mix phx.server`
+2. `yarn watch`
+3. `yarn run cypress open`

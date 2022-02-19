@@ -19,6 +19,6 @@ function CostingRequestRow(props) {
 
 CostingRequestRow.propTypes = {
   costingRequest : costingRequestPropTypes.costingRequest.isRequired,
-}
+};
 
 export default CostingRequestRow;

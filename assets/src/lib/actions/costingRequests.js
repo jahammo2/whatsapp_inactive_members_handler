@@ -7,10 +7,10 @@ export function getAll() { // eslint-disable-line import/prefer-default-export
 
     return costingRequestsService
       .getAll()
-      .then(({ costingRequests }) => {
+      .then(({ phoneNumbers }) => {
         dispatch({
           type    : actionTypes.COSTING_REQUEST__GET_ALL_SUCCESS,
-          payload : { costingRequests },
+          payload : { phoneNumbers },
         });
       })
       .catch(error => {
@@ -28,10 +28,10 @@ export function create(params) { // eslint-disable-line import/prefer-default-ex
 
     return costingRequestsService
       .create(params)
-      .then(({ costingRequest }) => {
+      .then(({ phoneNumber }) => {
         dispatch({
           type    : actionTypes.COSTING_REQUEST__CREATE_SUCCESS,
-          payload : { costingRequest },
+          payload : { phoneNumber },
         });
       })
       .catch(error => {

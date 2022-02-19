@@ -6,16 +6,13 @@
     "build": "webpack --config assets/webpack.config.js",
     "deploy": "eval mix assets.deploy",
     "deploy:frontend": "webpack --mode production --config assets/webpack.config.js",
-
     "lint": "npm run lint:js && npm run lint:styles",
     "lint-fix": "npm run lint:js-fix && npm run lint:styles-fix",
-    "lint:js": "eslint 'assets/src/**/*.{js,jsx}'",
-    "lint:js-fix": "eslint 'assets/src/**/*.{js,jsx}' --fix",
+    "lint:js": "eslint 'assets/src/**/*.{js,jsx}' && eslint 'test/e2e/**/*.{js,jsx}'",
+    "lint:js-fix": "eslint 'assets/src/**/*.{js,jsx}' --fix && eslint 'test/e2e/**/*.{js,jsx}' --fix",
     "lint:styles": "stylelint 'assets/src/**/*.{css,scss}'",
     "lint:styles-fix": "stylelint --fix 'assets/src/**/*.{css,scss}'",
-
     "test": "jest --config assets/support/jest/base.js",
-
     "watch": "webpack --mode development --watch --config assets/webpack.config.js"
   },
   "dependencies": {
@@ -47,9 +44,11 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-jsx-control-statements": "^4.1.0",
     "css-loader": "^5.2.4",
+    "cypress": "^9.5.0",
     "dotenv-webpack": "^7.0.3",
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsx-control-statements": "^2.2.1",

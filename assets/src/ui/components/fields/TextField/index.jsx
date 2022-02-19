@@ -7,12 +7,10 @@ import styles from './styles.module.scss';
 function TextField(props) {
   const {
     disabled,
-    errorMessages,
     htmlFor,
     name,
     placeholder,
     register,
-    type,
   } = props;
 
   const inputRef = useRef(null);
@@ -38,11 +36,10 @@ function TextField(props) {
 
 TextField.propTypes = {
   disabled      : basePropTypes.disabled.isRequired,
-  errorMessages : basePropTypes.errorMessages,
   htmlFor       : basePropTypes.htmlFor.isRequired,
   name          : basePropTypes.name.isRequired,
   placeholder   : basePropTypes.placeholder,
-  type          : basePropTypes.type.isRequired,
+  register      : basePropTypes.register.isRequired,
 };
 
 export default TextField;

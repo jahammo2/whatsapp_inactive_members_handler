@@ -3,7 +3,8 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    'jest/globals': true
+    'jest/globals': true,
+    "cypress/globals": true
   },
   extends: [
     'eslint:recommended',
@@ -11,7 +12,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jsx-control-statements/recommended',
   ],
-  plugins: ['jest', 'jsx-control-statements', 'react'],
+  plugins: ['cypress', 'jest', 'jsx-control-statements', 'react'],
   parser: 'babel-eslint',
   rules: {
     'arrow-parens': ['error', 'as-needed'],

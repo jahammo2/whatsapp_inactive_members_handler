@@ -10,7 +10,8 @@ defmodule WhatsappInactiveMembersHandlerWeb.Endpoint do
     signing_salt: "tU/Rm0Xa"
   ]
 
-  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options], timeout: 45_000]
+  socket "/live", Phoenix.LiveView.Socket,
+    websocket: [connect_info: [session: @session_options], timeout: 45_000]
 
   # Serve at "/" the static files from "priv/static" directory.
   #

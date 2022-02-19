@@ -6,14 +6,14 @@ import apiService from './api';
 export default {
   create(params) {
     return apiService
-      .post('/costing_requests', params)
+      .post('/phone_numbers', params)
       .then(({ data }) => camelCaseData(data))
       .catch(handleError);
   },
 
   getAll() {
     return apiService
-      .get('/costing_requests')
+      .get('/phone_numbers')
       .then(({ data }) => camelCaseData(data))
       .catch(handleError);
   },

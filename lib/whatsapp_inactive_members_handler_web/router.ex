@@ -17,6 +17,7 @@ defmodule WhatsappInactiveMembersHandlerWeb.Router do
   scope "/", WhatsappInactiveMembersHandlerWeb do
     pipe_through :browser
 
+    get "/phone_numbers", PhoneNumberController, :index
     get "/*path", PageController, :index
   end
 

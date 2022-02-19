@@ -13,7 +13,11 @@ config :whatsapp_inactive_members_handler,
 # Configures the endpoint
 config :whatsapp_inactive_members_handler, WhatsappInactiveMembersHandlerWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: WhatsappInactiveMembersHandlerWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [
+    view: WhatsappInactiveMembersHandlerWeb.ErrorView,
+    accepts: ~w(html json),
+    layout: false
+  ],
   pubsub_server: WhatsappInactiveMembersHandler.PubSub,
   live_view: [signing_salt: "wIba52YE"]
 
@@ -24,7 +28,8 @@ config :whatsapp_inactive_members_handler, WhatsappInactiveMembersHandlerWeb.End
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :whatsapp_inactive_members_handler, WhatsappInactiveMembersHandler.Mailer, adapter: Swoosh.Adapters.Local
+config :whatsapp_inactive_members_handler, WhatsappInactiveMembersHandler.Mailer,
+  adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
