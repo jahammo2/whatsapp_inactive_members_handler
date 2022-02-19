@@ -11,15 +11,19 @@
 * [x] get styles to pass between prod and dev
 * [x] decide on assets/js and assets/vendor
 * [x] write 1 exunit test for something basic
-* [ ] write 1 Cypress test
+* [x] write 1 Cypress test
 
-* [ ] write basic documentation for getting started
-* [ ] turn this into a boilerplate
+* [x] write basic documentation for getting started
+* [x] turn this into a boilerplate
 
-* [ ] write 1 test taking .txt file contents and doing things
-* [ ] do a little product planning
+* [x] write 1 test taking .txt file contents and doing things
+* [x] do a little product planning
 * [ ] rewrite all "costing request" stuff over to relevant stuff
 * [ ] write tests for all backend work
+
+## Getting started
+
+
 
 ### Questions
 

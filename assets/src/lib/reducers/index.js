@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import costingRequests from './costingRequests';
+import phoneNumbers from './phoneNumbers';
 
 export default combineReducers({
-  costingRequests,
+  phoneNumbers,
 });

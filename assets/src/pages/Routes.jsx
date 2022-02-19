@@ -1,16 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import CostingRequestsAll from 'src/pages/costingRequests/All';
+import PhoneNumbersAll from 'src/pages/phoneNumbers/All';
 
 function Routes() {
   /* eslint-disable max-len */
   return (
-    <>
-      <Switch>
-        <Route component={ CostingRequestsAll } exact path={ ['/', '/costing-requests'] } />
-      </Switch>
-    </>
+    <Switch>
+      <Route component={ PhoneNumbersAll } exact path={ ['/', '/phone-numbers'] } />
+    </Switch>
   );
   /* eslint-enable max-len */
 }
