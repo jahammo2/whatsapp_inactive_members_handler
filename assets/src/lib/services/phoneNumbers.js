@@ -4,9 +4,9 @@ import handleError from './shared/handleError';
 import apiService from './api';
 
 export default {
-  getAll() {
+  findInactiveContacts(params) {
     return apiService
-      .get('/phone_numbers')
+      .post('/find_inactive_contacts', params)
       .then(({ data }) => camelCaseData(data))
       .catch(handleError);
   },

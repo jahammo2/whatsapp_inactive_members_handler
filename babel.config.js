@@ -16,7 +16,13 @@ module.exports = function(api) {
   }
 
   let presets = [
-    require('@babel/preset-env').default,
+    [
+      require('@babel/preset-env').default,
+       {
+         useBuiltIns: "usage", // or "entry"
+         corejs: 3
+       }
+    ],
     [
       require('@babel/preset-react').default,
       {

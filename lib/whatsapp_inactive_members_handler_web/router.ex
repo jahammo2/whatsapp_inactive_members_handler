@@ -6,7 +6,6 @@ defmodule WhatsappInactiveMembersHandlerWeb.Router do
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, {WhatsappInactiveMembersHandlerWeb.LayoutView, :root}
-    plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
@@ -17,7 +16,7 @@ defmodule WhatsappInactiveMembersHandlerWeb.Router do
   scope "/", WhatsappInactiveMembersHandlerWeb do
     pipe_through :browser
 
-    get "/phone_numbers", PhoneNumberController, :index
+    post "/find_inactive_contacts", PhoneNumberController, :find_inactive_contacts
     get "/*path", PageController, :index
   end
 

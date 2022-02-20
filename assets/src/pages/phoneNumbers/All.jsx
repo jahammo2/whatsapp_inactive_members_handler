@@ -1,17 +1,25 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import * as basePropTypes from 'src/lib/constants/propTypes/base';
 import * as phoneNumberPropTypes from 'src/lib/constants/propTypes/phoneNumber';
 import * as phoneNumbersActionCreators from 'src/lib/actions/phoneNumbers';
 
+import buildValuesFromElementsWithFiles from 'src/lib/shared/buildValuesFromElementsWithFiles';
 import PhoneNumbersAll from 'src/ui/components/phoneNumbers/All';
 
 function FunctionalPhoneNumbers(props) {
-  useEffect(() => props.actions.phoneNumbers.getAll(), []);
+  const handleSubmit = useCallback(async (values) => {
+    const params = await buildValuesFromElementsWithFiles(values);
 
-  return <PhoneNumbersAll { ...props } />;
+    // console.log('values', values);
+    return props.actions.phoneNumbers
+      .findInactiveContacts(params)
+      .catch(() => null);
+  }, []);
+
+  return <PhoneNumbersAll handleSubmit={ handleSubmit } { ...props } />;
 }
 
 function mapStateToProps({ phoneNumbers }) {

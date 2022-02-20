@@ -1,4 +1,4 @@
-defmodule WhatsappInactiveMembersHandler.PhoneNumber.TxtContents do
+defmodule WhatsappInactiveMembersHandler.Contact.Contacts do
   def prepare_list_from_file(txt_file), do: prepare_list_from_file(txt_file, nil)
 
   def prepare_list_from_file(txt_file, date_string) do

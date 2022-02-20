@@ -20,6 +20,7 @@
 * [x] do a little product planning
 * [ ] rewrite all "costing request" stuff over to relevant stuff
 * [ ] write tests for all backend work
+* [ ] get rid of all getAll stuff
 
 ## Getting started
 

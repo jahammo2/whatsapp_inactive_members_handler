@@ -5,16 +5,16 @@ import INITIAL_STATE from './initialState';
 
 export default function (state = INITIAL_STATE, { payload, type }) {
   switch (type) {
-    case actionTypes.PHONE_NUMBER__GET_ALL_FAILURE:
+    case actionTypes.PHONE_NUMBER__FIND_INACTIVE_CONTACTS_FAILURE:
       return state.withMutations(map => {
         map.set('errors', null);
         map.set('isActive', false);
       });
 
-    case actionTypes.PHONE_NUMBER__GET_ALL_START:
+    case actionTypes.PHONE_NUMBER__FIND_INACTIVE_CONTACTS_START:
       return state.set('isActive', true);
 
-    case actionTypes.PHONE_NUMBER__GET_ALL_SUCCESS:
+    case actionTypes.PHONE_NUMBER__FIND_INACTIVE_CONTACTS_SUCCESS:
       return state.withMutations(map => {
         const { phoneNumbers } = payload;
 
