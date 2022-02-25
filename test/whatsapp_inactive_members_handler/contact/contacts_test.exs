@@ -3,38 +3,23 @@ defmodule WhatsappInactiveMembersHandler.Contact.ContactsTest do
 
   alias WhatsappInactiveMembersHandler.Contact.Contacts
 
-  @txt_path "test/fixtures/messages.txt"
+  @contents "{\n    \"Volleyball PDC\": [\n        {\n            \"Name\": \"Test User 1\",\n            \"Phone\": \"+44 5555 339971\",\n            \"Country\": \"United Kingdom\"\n        },\n        {\n            \"Name\": \"Test User 2\",\n            \"Phone\": \"+1 555 515 1517\",\n            \"Country\": \"United States\"\n        },\n        {\n            \"Name\": \"Test User 3\",\n            \"Phone\": \"+1 555 273 0228\",\n            \"Country\": \"United States\"\n        },\n        {\n            \"Name\": \"Test User 4\",\n            \"Phone\": \"+52 555 196 2556\",\n            \"Country\": \"Mexico\"\n        },\n        {\n            \"Name\": \"Test User 5\",\n            \"Phone\": \"+44 555 820940\",\n            \"Country\": \"United Kingdom\"\n        },\n        {\n            \"Name\": \"+1 (555) 232-6344\",\n            \"Phone\": \"+1 555 232 6344\",\n            \"Country\": \"Canada\"\n        },\n        {\n            \"Name\": \"+1 (555) 677-7421\",\n            \"Phone\": \"+1 555 677 7421\",\n            \"Country\": \"United States\"\n        },\n        {\n            \"Name\": \"Test US user\",\n            \"Phone\": \"+1 555 225 9853\",\n            \"Country\": \"United States\"\n        },\n        {\n            \"Name\": \"+31 6 55588812\",\n            \"Phone\": \"+31 6 55588812\",\n            \"Country\": \"Netherlands\"\n        },\n        {\n            \"Name\": \"Test France User\",\n            \"Phone\": \"+33 6 55 55 08 58\",\n            \"Country\": \"France\"\n        },\n        {\n            \"Name\": \"+34 555 15 24 66\",\n            \"Phone\": \"+34 555 15 24 66\",\n            \"Country\": \"Spain\"\n        },\n        {\n            \"Name\": \"Test Hungary User\",\n            \"Phone\": \"+36 20 555 0483\",\n            \"Country\": \"Hungary\"\n        },\n        {\n            \"Name\": \"Test Belarus User\",\n            \"Phone\": \"+375 29 555 65 46\",\n            \"Country\": \"Belarus\"\n        },\n        {\n            \"Name\": \"+39 349 555 6335\",\n            \"Phone\": \"+39 349 555 6335\",\n            \"Country\": \"Italy\"\n        },\n        {\n            \"Name\": \"+420 739 555 759\",\n            \"Phone\": \"+420 739 555 759\",\n            \"Country\": \"Czech Republic\"\n        },\n        {\n            \"Name\": \"+44 5554 771107\",\n            \"Phone\": \"+44 5555 771107\",\n            \"Country\": \"United Kingdom\"\n        },\n        {\n            \"Name\": \"Test UK user\",\n            \"Phone\": \"+44 5555 117737\",\n            \"Country\": \"United Kingdom\"\n        },\n        {\n            \"Name\": \"Test Poland user\",\n            \"Phone\": \"+48 555 360 422\",\n            \"Country\": \"Poland\"\n        },\n        {\n            \"Name\": \"+49 555 29067581\",\n            \"Phone\": \"+49 555 29067581\",\n            \"Country\": \"Germany\"\n        },\n        {\n            \"Name\": \"Test Nicaragua user\",\n            \"Phone\": \"+505 5555 4294\",\n            \"Country\": \"Nicaragua\"\n        },\n        {\n            \"Name\": \"+52 1 33 5555 1960\",\n            \"Phone\": \"+52 33 5555 1960\",\n            \"Country\": \"Mexico\"\n        },\n        {\n            \"Name\": \"Test Mexico user\",\n            \"Phone\": \"+52 33 5555 7236\",\n            \"Country\": \"Mexico\"\n        },\n        {\n            \"Name\": \"Test Chile User\",\n            \"Phone\": \"+56 9 5555 6203\",\n            \"Country\": \"Chile\"\n        },\n        {\n            \"Name\": \"Test Colombia User\",\n            \"Phone\": \"+57 555 7641021\",\n            \"Country\": \"Colombia\"\n        },\n        {\n            \"Name\": \"+7 911 555-72-50\",\n            \"Phone\": \"+7 911 555 72 50\",\n            \"Country\": \"Russian Federation\"\n        },\n        {\n            \"Name\": \"+7 916 555-33-33\",\n            \"Phone\": \"+7 916 555 33 33\",\n            \"Country\": \"Russian Federation\"\n        },\n        {\n            \"Name\": \"Test Russia User\",\n            \"Phone\": \"+7 916 555 87 72\",\n            \"Country\": \"Russian Federation\"\n        },\n        {\n            \"Name\": \"+90 533 555 26 91\",\n            \"Phone\": \"+90 533 555 26 91\",\n            \"Country\": \"Turkey\"\n        },\n        {\n            \"Name\": \"Test UAB User\",\n            \"Phone\": \"+971 58 555 3254\",\n            \"Country\": \"United Arab Emirates\"\n        },\n        {\n            \"Name\": \"Test Israel User\",\n            \"Phone\": \"+972 50 555 6588\",\n            \"Country\": \"Israel\"\n        },\n        {\n            \"Name\": \"Jordan Hammond\",\n            \"Phone\": \"+1 555 555 5555\",\n            \"Country\": \"United States\"\n        }\n    ]\n}\n"
 
-  # NOTE: dates are DD/MM/YY
-  describe "prepare_list_from_file/2" do
-    test "it returns a list of strings from the file based upon the date needed" do
-      list = Contacts.prepare_list_from_file(@txt_path, "10/12/21")
+  describe "prepare_list_from_contents/2" do
+    test "it returns a list of structs from the file and does not include you" do
+      assert list = Contacts.prepare_list_from_contents(@contents)
 
-      assert String.contains? Enum.at(list, 0), "10/12/21 10:24 a. m."
-      assert String.contains? Enum.at(list, length(list) - 1), "03/02/22 12:30 p. m."
-    end
+      assert Enum.at(list, 0) == %{
+               "Country" => "United Kingdom",
+               "Name" => "Test User 1",
+               "Phone" => "+44 5555 339971"
+             }
 
-    test "it returns a list of strings from the file for the most recent date if the passed date cannot be found" do
-      list = Contacts.prepare_list_from_file(@txt_path, "11/12/21")
-
-      assert String.contains? Enum.at(list, 0), "01/02/22 3:35 p. m."
-      assert String.contains? Enum.at(list, length(list) - 1), "03/02/22 12:30 p. m."
-    end
-
-    test "it returns a list of strings from the file and only uses the last line if the date passed is in the future" do
-      list = Contacts.prepare_list_from_file(@txt_path, "10/01/29")
-
-      assert String.contains? Enum.at(list, 0), "03/02/22 12:30 p. m."
-      assert String.contains? Enum.at(list, length(list) - 1), "03/02/22 12:30 p. m."
-    end
-  end
-
-  describe "prepare_list_from_file/1" do
-    test "it returns a list of strings from the file and uses the whole file if no date is passed" do
-      list = Contacts.prepare_list_from_file(@txt_path)
-
-      assert Enum.at(list, 0) == "1. Foo"
-      assert String.contains? Enum.at(list, length(list) - 1), "03/02/22 12:30 p. m."
+      assert Enum.at(list, length(list) - 1) == %{
+               "Country" => "Israel",
+               "Name" => "Test Israel User",
+               "Phone" => "+972 50 555 6588"
+             }
     end
   end
 end

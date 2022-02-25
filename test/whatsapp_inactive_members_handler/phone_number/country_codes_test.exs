@@ -4,7 +4,6 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.CountryCodesTest do
   alias WhatsappInactiveMembersHandler.PhoneNumber.CountryCodes
 
   describe "build_phone_number_by_country_code/1" do
-    @tag :authenticated
     test "it converts a +1 phone number to a specific format" do
       number = "+1 555 677 7421"
       assert CountryCodes.build_phone_number_by_country_code(number) == "+1 (555) 677-7421"

@@ -3,14 +3,19 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.CountryCodes do
     cond do
       String.contains?(number, "+1 ") ->
         build_us_number(number)
+
       String.contains?(number, "+7 ") ->
         build_rus_number(number)
+
       String.contains?(number, "+54 ") ->
         build_arg_number(number)
+
       String.contains?(number, "+55 ") ->
         build_braz_number(number)
+
       String.contains?(number, "+972 ") ->
         build_isr_number(number)
+
       true ->
         number
     end

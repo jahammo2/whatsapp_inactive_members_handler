@@ -76,13 +76,13 @@
             "Country": "Czech Republic"
         },
         {
-            "Name": "+44 5554 771107",
+            "Name": "+44 5555 771107",
             "Phone": "+44 5555 771107",
             "Country": "United Kingdom"
         },
         {
             "Name": "Test UK user",
-            "Phone": "+44 5555 117737",
+            "Phone": "+44 5555 117733",
             "Country": "United Kingdom"
         },
         {
@@ -126,6 +126,11 @@
             "Country": "Russian Federation"
         },
         {
+            "Name": "+7 916 555-33-33",
+            "Phone": "+7 916 555 33 33",
+            "Country": "Russian Federation"
+        },
+        {
             "Name": "Test Russia User",
             "Phone": "+7 916 555 87 72",
             "Country": "Russian Federation"
@@ -152,4 +157,3 @@
         }
     ]
 }
-

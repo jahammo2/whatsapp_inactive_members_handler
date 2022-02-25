@@ -1,5 +1,12 @@
 ##
 
+* You just got all your phone number ex tests to pass
+* Refactor WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbers
+* Then get E2E tests passing
+  * add error test cases
+
+##
+
 * You were trying to read io data from a file
 * Start by repeating the uploading of a file
 
