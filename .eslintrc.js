@@ -28,7 +28,7 @@ module.exports = {
       mode        : 'minimum',
     }],
 
-    'max-len': ['error', {
+    'max-len': ['off', {
       code : 100,
       comments : 150,
       "ignorePattern": "^import\\s.+\\sfrom\\s.+;$|^\\s*\<path\\s.+|d\=\"",

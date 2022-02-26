@@ -5,16 +5,22 @@ defmodule WhatsappInactiveMembersHandler.Message.Messages do
     list = String.split(contents, "\n")
     list = List.delete_at(list, length(list) - 1)
 
-    starting_index = find_starting_index(list, date_string)
-
-    build_list_from_index(list, starting_index)
+    find_starting_index(list, date_string)
+    |> build_list_from_index(list)
   end
 
-  defp find_starting_index(list, nil), do: 0
+  defp find_starting_index(_list, nil), do: 0
+  defp find_starting_index(_list, ""), do: 0
 
   defp find_starting_index(list, date_string) do
     date = convert_to_date(date_string)
     find_starting_index(list, date_string, date)
+  end
+
+  defp convert_to_date(date_string) do
+    [dd, mm, yy] = String.split(date_string, "/")
+    {:ok, date} = Date.from_iso8601("20#{yy}-#{mm}-#{dd}")
+    date
   end
 
   defp find_starting_index(list, date_string, date) do
@@ -23,6 +29,10 @@ defmodule WhatsappInactiveMembersHandler.Message.Messages do
     else
       length(list) - 1
     end
+  end
+
+  defp is_date_in_future?(date) do
+    Date.diff(date, Date.utc_today()) > 0
   end
 
   defp go_through_dates_until_index_is_found(list, date_string, date) do
@@ -46,7 +56,7 @@ defmodule WhatsappInactiveMembersHandler.Message.Messages do
     end)
   end
 
-  defp build_list_from_index(list, index \\ 0) do
+  defp build_list_from_index(index, list) do
     list
     |> Enum.with_index()
     |> Enum.reduce([], fn {item, i}, acc ->
@@ -56,15 +66,5 @@ defmodule WhatsappInactiveMembersHandler.Message.Messages do
         acc
       end
     end)
-  end
-
-  defp convert_to_date(date_string) do
-    [dd, mm, yy] = String.split(date_string, "/")
-    {:ok, date} = Date.from_iso8601("20#{yy}-#{mm}-#{dd}")
-    date
-  end
-
-  defp is_date_in_future?(date) do
-    Date.diff(date, Date.utc_today()) > 0
   end
 end

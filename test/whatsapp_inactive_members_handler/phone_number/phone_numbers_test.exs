@@ -89,5 +89,11 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbersTest do
 
       assert ^inactive_contacts = PhoneNumbers.find_inactive_contacts(params)
     end
+
+    test "it does not include a contact that only changed their number within the timeframe" do
+    end
+
+    test "returns Mexico contacts in a different format" do
+    end
   end
 end

@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 
 import * as basePropTypes from 'src/lib/constants/propTypes/base';
 import * as phoneNumberPropTypes from 'src/lib/constants/propTypes/phoneNumber';
@@ -10,20 +10,26 @@ import buildValuesFromElementsWithFiles from 'src/lib/shared/buildValuesFromElem
 import PhoneNumbersAll from 'src/ui/components/phoneNumbers/All';
 
 function FunctionalPhoneNumbers(props) {
-  const handleSubmit = useCallback(async (values) => {
+  const handleSubmit = useCallback(async values => {
     const params = await buildValuesFromElementsWithFiles(values);
 
-    // console.log('values', values);
     return props.actions.phoneNumbers
       .findInactiveContacts(params)
       .catch(() => null);
   }, []);
 
-  return <PhoneNumbersAll handleSubmit={ handleSubmit } { ...props } />;
+  return (
+    <PhoneNumbersAll
+      handleSubmit={ handleSubmit }
+      hasError={ props.hasError }
+      { ...props }
+    />
+  );
 }
 
 function mapStateToProps({ phoneNumbers }) {
   return {
+    hasError     : phoneNumbers.get('hasError'),
     phoneNumbers : phoneNumbers.getIn(['loaded', 'phoneNumbers']),
   };
 }
@@ -37,7 +43,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 FunctionalPhoneNumbers.propTypes = {
-  actions         : basePropTypes.actions.isRequired,
+  actions      : basePropTypes.actions.isRequired,
+  hasError     : basePropTypes.hasError,
   phoneNumbers : phoneNumberPropTypes.phoneNumbers.isRequired,
 };
 

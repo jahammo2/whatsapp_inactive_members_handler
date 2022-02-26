@@ -4,35 +4,27 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbers do
   alias WhatsappInactiveMembersHandler.PhoneNumber.CountryCodes
 
   def find_inactive_contacts(params) do
-    messages_io = params["messagesFile"]["io"]
-    contacts_io = params["contactsFile"]["io"]
-    start_date = params["startDate"]
-    starting_unsaved_contact = params["startingUnsavedContact"]
-
-    %URL{parsed_path: %URL.Data{data: messages_data}} = URL.parse(messages_io)
-    %URL{parsed_path: %URL.Data{data: contacts_data}} = URL.parse(contacts_io)
-
-    list_of_contacts = Contacts.prepare_list_from_contents(contacts_data)
     list_of_messages = get_list_of_messages(params)
 
-    initial_names = get_initial_names(list_of_contacts, starting_unsaved_contact)
-
-    searchable_numbers_and_names = convert_to_searchables(initial_names)
-    IO.inspect("6 - ****************")
-
-    inactives = check_against_messages(searchable_numbers_and_names, list_of_messages)
-    IO.inspect(inactives)
-    inactives
+    get_list_of_contacts(params)
+    |> get_initial_names(params["startingUnsavedContact"])
+    |> convert_to_searchables
+    |> check_against_messages(list_of_messages)
   end
 
   defp get_list_of_messages(params) do
-    contacts_io = params["contactsFile"]["io"]
-    start_date = params["startDate"]
-
-    Messages.prepare_list_from_contents(messages_data, start_date)
+    get_data_from_io(params["messagesFile"]["io"])
+    |> Messages.prepare_list_from_contents(params["startDate"])
   end
 
-  defp get_message_data() do
+  defp get_list_of_contacts(params) do
+    get_data_from_io(params["contactsFile"]["io"])
+    |> Contacts.prepare_list_from_contents()
+  end
+
+  defp get_data_from_io(io) do
+    %URL{parsed_path: %URL.Data{data: contacts_data}} = URL.parse(io)
+    contacts_data
   end
 
   defp get_initial_names(list_of_contacts, starting_unsaved_contact) do
@@ -60,12 +52,6 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbers do
     |> Enum.reduce([], fn item, acc ->
       existing_message =
         Enum.find(list_of_messages, fn message ->
-          # if String.contains?(item, "225") do
-          #   IO.inspect "8 - ********************"
-          #   IO.inspect message
-          #   IO.inspect item
-          # end
-
           String.contains?(message, item)
         end)
 

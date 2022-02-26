@@ -4,11 +4,14 @@ import { PropTypes } from 'prop-types';
 export const actions = PropTypes.objectOf(PropTypes.objectOf(PropTypes.func));
 export const buttonText = PropTypes.string;
 export const children = PropTypes.node;
+export const dataTestId = PropTypes.string;
 export const disabled = PropTypes.bool;
 export const errorMessages = ImmutablePropTypes.list;
 export const errors = ImmutablePropTypes.mapOf(PropTypes.array);
 export const floatRight = PropTypes.bool;
 export const handleClick = PropTypes.func;
+export const handleSubmit = PropTypes.func;
+export const hasError = PropTypes.bool;
 
 export const history = PropTypes.shape({
   push : PropTypes.func.isRequired,
@@ -26,7 +29,9 @@ export const location = PropTypes.shape({
 
 export const name = PropTypes.string;
 export const placeholder = PropTypes.string;
+export const setValue = PropTypes.func;
 export const text = PropTypes.string;
+export const title = PropTypes.string;
 export const to = PropTypes.string;
 export const type = PropTypes.string;
 export const value = PropTypes.string;

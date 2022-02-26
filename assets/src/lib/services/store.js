@@ -41,6 +41,12 @@ class Store {
     const persistedReducer = this._buildPersistedReducer();
     const middlewares = [applyMiddleware(thunk)];
 
+    /* eslint-disable no-underscore-dangle */
+    if (window.__REDUX_DEVTOOLS_EXTENSION__) {
+      middlewares.push(window.__REDUX_DEVTOOLS_EXTENSION__());
+    }
+    /* eslint-enable no-underscore-dangle */
+
     this.store = createStore(
       persistedReducer,
       {}, // initial state

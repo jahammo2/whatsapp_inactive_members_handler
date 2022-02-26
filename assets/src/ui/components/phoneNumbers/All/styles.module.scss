@@ -2,6 +2,24 @@
   @include root-container;
 }
 
-.StartDateInput {
+.SubPara {
+  margin-bottom: 24px;
+  margin-top: 4px;
+}
+
+.StartDateInput,
+.StartingContactInput, {
   border: 1px solid $color--primary;
+}
+
+.ErrorContainer {
+  margin-top: $spacing--med;
+
+  * {
+    color: red;
+  }
+}
+
+.PhoneNumbersContainer {
+  margin-top: 24px;
 }

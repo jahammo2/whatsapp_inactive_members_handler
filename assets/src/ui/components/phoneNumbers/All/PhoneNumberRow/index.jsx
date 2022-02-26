@@ -11,8 +11,7 @@ function PhoneNumberRow(props) {
 
   return (
     <li className={ styles.Root }>
-      <div className={ styles.Value }>{ phoneNumber.get('id') }</div>
-      <div className={ styles.Value }>{ phoneNumber.get('opportunityId') }</div>
+      <div className={ styles.Value }>{ phoneNumber },</div>
     </li>
   );
 }

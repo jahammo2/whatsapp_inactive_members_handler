@@ -4,9 +4,7 @@ export default function (file) {
 
     const reader = new FileReader();
 
-    reader.onload = ({ target: { result } }) => {
-      return resolve({ io : result });
-    };
+    reader.onload = ({ target: { result } }) => resolve({ io : result });
 
     reader.readAsDataURL(file);
   });
