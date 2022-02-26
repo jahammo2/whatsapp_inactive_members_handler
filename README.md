@@ -1,5 +1,7 @@
 # WhatsappInactiveMembersHandler
 
+https://young-citadel-22408.herokuapp.com/#/
+
 ## TODOS
 
 * [x] run a successful frontend build
@@ -18,18 +20,9 @@
 
 * [x] write 1 test taking .txt file contents and doing things
 * [x] do a little product planning
-* [ ] rewrite all "costing request" stuff over to relevant stuff
-* [ ] write tests for all backend work
-* [ ] get rid of all getAll stuff
-
-## Getting started
-
-
-
-### Questions
-
-* What can outside users do?
-* What instructions will I add to the frontend
+* [x] rewrite all "costing request" stuff over to relevant stuff
+* [x] write tests for all backend work
+* [x] get rid of all getAll stuff
 
 ## How to...
 
