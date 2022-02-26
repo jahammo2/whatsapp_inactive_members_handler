@@ -10,6 +10,7 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbers do
     |> get_initial_names(params["startingUnsavedContact"])
     |> convert_to_searchables
     |> check_against_messages(list_of_messages)
+    |> convert_to_returnable_inactives
   end
 
   defp get_list_of_messages(params) do
@@ -50,16 +51,37 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbers do
   defp check_against_messages(searchables, list_of_messages) do
     searchables
     |> Enum.reduce([], fn item, acc ->
-      existing_message =
-        Enum.find(list_of_messages, fn message ->
+      existing_messages =
+        Enum.filter(list_of_messages, fn message ->
           String.contains?(message, item)
         end)
 
-      if existing_message do
+      if is_valid_activity?(existing_messages) do
         acc
       else
         acc ++ [item]
       end
     end)
+  end
+
+  defp convert_to_returnable_inactives(inactives) do
+    inactives
+    |> Enum.reduce([], fn inactive, acc ->
+      if String.contains?(inactive, "+52 ") do
+        new_string = CountryCodes.build_returnable_mexico_number(inactive)
+        acc ++ [new_string]
+      else
+        acc ++ [inactive]
+      end
+    end)
+  end
+
+  defp is_valid_activity?(nil), do: false
+  defp is_valid_activity?(existing_messages) when length(existing_messages) == 0, do: false
+  defp is_valid_activity?(existing_messages) when length(existing_messages) > 1, do: true
+
+  defp is_valid_activity?(existing_messages) do
+    !String.contains?(Enum.at(existing_messages, 0), "cambió a +") &&
+      !String.contains?(Enum.at(existing_messages, 0), "changed to +")
   end
 end

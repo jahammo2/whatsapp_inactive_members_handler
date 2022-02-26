@@ -21,6 +21,16 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.CountryCodes do
     end
   end
 
+  def build_returnable_mexico_number(number) do
+    split = String.split(number, " ")
+
+    second = split |> Enum.at(1)
+    third = split |> Enum.at(2)
+    fourth = split |> Enum.at(3)
+
+    "+52 1 #{second} #{third} #{fourth}"
+  end
+
   defp build_us_number(number) do
     split = String.split(number, " ")
 

@@ -7,7 +7,7 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbersTest do
     @params %{
       "messagesFile" => %{
         "io" =>
-          "data:text/plain;base64,MS4gRm9vCgowMS8wNC8yMSAxMTowNCBwLsKgbS4gLSBMb3MgbWVuc2FqZXMgeSBsYXMgbGxhbWFkYXMgZXN0w6FuIGNpZnJhZG9zIGRlIGV4dHJlbW8gYSBleHRyZW1vLiBOYWRpZSBmdWVyYSBkZSBlc3RlIGNoYXQsIG5pIHNpcXVpZXJhIFdoYXRzQXBwLCBwdWVkZSBsZWVybG9zIG5pIGVzY3VjaGFybG9zLiBUb2NhIHBhcmEgb2J0ZW5lciBtw6FzIGluZm9ybWFjacOzbi4KCjEyLzA0LzIxIDEyOjAzIHAuwqBtLiAtIFRlc3QgVXNlciAyOiAydjIgc2lnbi11cCB0b2RheSBhdCA0cG0sIENvY28gQmVhY2guICBXZSBjdXJyZW50bHkgaGF2ZSA0IHBsYXllcnMgc28gd2UncmUgbG9va2luZyBmb3IgYWJvdXQgNC02IG1vcmUgYWN0aXZlIHBsYXllcnMgZm9yIHRoaXMgZ2FtZToKCjA2LzA1LzIxIDEwOjQ3IHAuwqBtLiAtIFRlc3QgVXNlciA0OiBFc3BlcmFuZG8gZXN0ZSBtZW5zYWplCgoxNi8wOC8yMSA1OjI0IHAuwqBtLiAtICsxICgyMDQpIDU1NS02MzQ0OiBUaGFua3MhIEpvaW5lZCB0aGF0IHRvbwoKMS4gTWlrZQoyLiBUaW0KMy4gSm9zaHVhCjQuIEFicmlsCjUuIERhbmllbCArMgoxMC8xMi8yMSAxMDoyNCBhLsKgbS4gLSArMSAoNTU1KSAyMjUtOTg1MzogQmVhY2gg8J+PkCBEZWMgMTJ0aC4gMjowMHBtCgoxLiBBbGUKMi4gQ2hyaXN0aWFuCjMuIEtsYXVkaWEKNC4gU3Rlbwo1LiBDcmFpZwo2LiBMaW51cwo3LiBUb255CjAxLzAyLzIyIDM6MzUgcC7CoG0uIC0gKzMxIDYgNTU1ODg4MTI6IFNlZSB5b3UgdGhlcmUgYXJvdW5kIDQ6MTAKMDEvMDIvMjIgMzo0NSBwLsKgbS4gLSArMzMgNiA1NSA1NSAwOCA1ODogT24gbXkgd2F5CjAxLzAyLzIyIDM6NTYgcC7CoG0uIC0gKzM0IDU1NSAxNSAyNCA2NjogQ29vbAowMS8wMi8yMiAzOjU3IHAuwqBtLiAtICszNiAyMCA1NTUgMDQ4MzogSnVzdCBnb3QgdGhlIG5ldCBiZSB0aGVyZSBzb29uCjAxLzAyLzIyIDQ6MTcgcC7CoG0uIC0gKzM2IDIwIDU1NSAwNDgzOiA8TXVsdGltZWRpYSBvbWl0aWRvPgowMS8wMi8yMiA0OjE3IHAuwqBtLiAtICszNiAyMCA1NTUgMDQ4MzogV2hlcmUgYXJlIHlvdSBhbGw/PwowMS8wMi8yMiA0OjIyIHAuwqBtLiAtICszNzUgMjkgNTU1LTY1LTQ2OiA1IG1pbgowMS8wMi8yMiA1OjA1IHAuwqBtLiAtIOKAjiszOSAzNDkgNTU1IDYzMzUgc2UgdW5pw7MgdXNhbmRvIGVsIGVubGFjZSBkZSBpbnZpdGFjacOzbiBkZSBlc3RlIGdydXBvCjAxLzAyLzIyIDU6MjYgcC7CoG0uIC0g4oCOKzQyMCA3MzkgNTU1IDc1OSBzYWxpw7MgZGVsIGdydXBvCjAxLzAyLzIyIDc6MjUgcC7CoG0uIC0gKzQ0IDU1NTUgNzcxMTA3OiBHcmVhdCBnYW1lIHRvZGF5IGd1eXMhIFRoYW5rIHlvdSDwn5mPCjAxLzAyLzIyIDc6MjUgcC7CoG0uIC0gKzQ0IDU1NTUgNzcxMTA3OiBZZWFoIGl0IHdhcyBmdW4KMDEvMDIvMjIgNzoyNiBwLsKgbS4gLSArNyA5MTYgNTU1LTMzLTMzOiBmb28gYmFyCjAxLzAyLzIyIDc6MzIgcC7CoG0uIC0gKzQ0IDU1NTUgMTE3NzMzOiA8TXVsdGltZWRpYSBvbWl0aWRvPgowMS8wMi8yMiA3OjMyIHAuwqBtLiAtIFRlc3QgVXNlciAxOiDwn5iO8J+RjPCfj7zwn4+QCjAxLzAyLzIyIDc6MzIgcC7CoG0uIC0gKzQ4IDU1NSAzNjAgNDIyOiBUaGFuayB5b3UgYWxsIGd1eXMhCjAyLzAyLzIyIDY6MTEgYS7CoG0uIC0g4oCOKzQ5IDU1NSAyOTA2NzU4MSBzYWxpw7MgZGVsIGdydXBvCjAyLzAyLzIyIDk6NDMgcC7CoG0uIC0g4oCOKzUwNSA1NTU1IDQyOTQgdXNlciBzYWxpw7MgZGVsIGdydXBvCjAyLzAyLzIyIDEwOjM3IHAuwqBtLiAtIOKAjis1MiAxIDMzIDU1NTUgMTk2MCBzZSB1bmnDsyB1c2FuZG8gZWwgZW5sYWNlIGRlIGludml0YWNpw7NuIGRlIGVzdGUgZ3J1cG8KMDMvMDIvMjIgMTI6MzAgcC7CoG0uIC0g4oCOKzUyIDMzIDU1NTUgNzIzNiBzYWxpw7MgZGVsIGdydXBvCg=="
+          "data:text/plain;base64,MS4gRm9vCgowMS8wNC8yMSAxMTowNCBwLsKgbS4gLSBMb3MgbWVuc2FqZXMgeSBsYXMgbGxhbWFkYXMgZXN0w6FuIGNpZnJhZG9zIGRlIGV4dHJlbW8gYSBleHRyZW1vLiBOYWRpZSBmdWVyYSBkZSBlc3RlIGNoYXQsIG5pIHNpcXVpZXJhIFdoYXRzQXBwLCBwdWVkZSBsZWVybG9zIG5pIGVzY3VjaGFybG9zLiBUb2NhIHBhcmEgb2J0ZW5lciBtw6FzIGluZm9ybWFjacOzbi4KCjEyLzA0LzIxIDEyOjAzIHAuwqBtLiAtIFRlc3QgVXNlciAyOiAydjIgc2lnbi11cCB0b2RheSBhdCA0cG0sIENvY28gQmVhY2guICBXZSBjdXJyZW50bHkgaGF2ZSA0IHBsYXllcnMgc28gd2UncmUgbG9va2luZyBmb3IgYWJvdXQgNC02IG1vcmUgYWN0aXZlIHBsYXllcnMgZm9yIHRoaXMgZ2FtZToKCjA2LzA1LzIxIDEwOjQ3IHAuwqBtLiAtIFRlc3QgVXNlciA0OiBFc3BlcmFuZG8gZXN0ZSBtZW5zYWplCgoxNi8wOC8yMSA1OjI0IHAuwqBtLiAtICsxICg1NTUpIDIzMi02MzQ0OiBUaGFua3MhIEpvaW5lZCB0aGF0IHRvbwoKMS4gTWlrZQoyLiBUaW0KMy4gSm9zaHVhCjQuIEFicmlsCjUuIERhbmllbCArMgoxMC8xMi8yMSAxMDoyNCBhLsKgbS4gLSArMSAoNTU1KSAyMjUtOTg1MzogQmVhY2gg8J+PkCBEZWMgMTJ0aC4gMjowMHBtCgoxLiBBbGUKMi4gQ2hyaXN0aWFuCjMuIEtsYXVkaWEKNC4gU3Rlbwo1LiBDcmFpZwo2LiBMaW51cwo3LiBUb255CjAxLzAyLzIyIDM6MzUgcC7CoG0uIC0gKzMxIDYgNTU1ODg4MTI6IFNlZSB5b3UgdGhlcmUgYXJvdW5kIDQ6MTAKMDEvMDIvMjIgMzo0NSBwLsKgbS4gLSArMzMgNiA1NSA1NSAwOCA1ODogT24gbXkgd2F5CjAxLzAyLzIyIDM6NTYgcC7CoG0uIC0gKzM0IDU1NSAxNSAyNCA2NjogQ29vbAowMS8wMi8yMiAzOjU3IHAuwqBtLiAtICszNiAyMCA1NTUgMDQ4MzogSnVzdCBnb3QgdGhlIG5ldCBiZSB0aGVyZSBzb29uCjAxLzAyLzIyIDQ6MTcgcC7CoG0uIC0gKzM2IDIwIDU1NSAwNDgzOiA8TXVsdGltZWRpYSBvbWl0aWRvPgowMS8wMi8yMiA0OjE3IHAuwqBtLiAtICszNiAyMCA1NTUgMDQ4MzogV2hlcmUgYXJlIHlvdSBhbGw/PwowMS8wMi8yMiA0OjIyIHAuwqBtLiAtICszNzUgMjkgNTU1LTY1LTQ2OiA1IG1pbgowMS8wMi8yMiA1OjA1IHAuwqBtLiAtIOKAjiszOSAzNDkgNTU1IDYzMzUgc2UgdW5pw7MgdXNhbmRvIGVsIGVubGFjZSBkZSBpbnZpdGFjacOzbiBkZSBlc3RlIGdydXBvCjAxLzAyLzIyIDU6MjYgcC7CoG0uIC0g4oCOKzQyMCA3MzkgNTU1IDc1OSBzYWxpw7MgZGVsIGdydXBvCjAxLzAyLzIyIDc6MjUgcC7CoG0uIC0gKzQ0IDU1NTUgNzcxMTA3OiBHcmVhdCBnYW1lIHRvZGF5IGd1eXMhIFRoYW5rIHlvdSDwn5mPCjAxLzAyLzIyIDc6MjUgcC7CoG0uIC0gKzQ0IDU1NTUgNzcxMTA3OiBZZWFoIGl0IHdhcyBmdW4KMDEvMDIvMjIgNzoyNiBwLsKgbS4gLSArNyA5MTYgNTU1LTMzLTMzOiBmb28gYmFyCjAxLzAyLzIyIDc6MzIgcC7CoG0uIC0gKzQ0IDU1NTUgMTE3NzMzOiA8TXVsdGltZWRpYSBvbWl0aWRvPgowMS8wMi8yMiA3OjMyIHAuwqBtLiAtIFRlc3QgVXNlciAxOiDwn5iO8J+RjPCfj7zwn4+QCjAxLzAyLzIyIDc6MzIgcC7CoG0uIC0gKzQ4IDU1NSAzNjAgNDIyOiBUaGFuayB5b3UgYWxsIGd1eXMhCjAyLzAyLzIyIDY6MTEgYS7CoG0uIC0g4oCOKzQ5IDU1NSAyOTA2NzU4MSBzYWxpw7MgZGVsIGdydXBvCjAyLzAyLzIyIDk6NDMgcC7CoG0uIC0g4oCOKzUwNSA1NTU1IDQyOTQgdXNlciBzYWxpw7MgZGVsIGdydXBvCjAyLzAyLzIyIDEwOjM3IHAuwqBtLiAtIOKAjis1MiAxIDMzIDU1NTUgMTk2MCBzZSB1bmnDsyB1c2FuZG8gZWwgZW5sYWNlIGRlIGludml0YWNpw7NuIGRlIGVzdGUgZ3J1cG8KMDIvMDIvMjIgMTA6NDAgcC7CoG0uIC0g4oCOKzk3MSA1OCA1NTUgNTU1NSBjYW1iacOzIGEgKzk3MSA1OCA1NTUgMzI1NAowMi8wMi8yMiAxMDo0MCBwLsKgbS4gLSDigI4rOTAgNTMzIDU1NSA1NSA1NSBjYW1iacOzIGEgKzkwIDUzMyA1NTUgMjYgOTEKMDIvMDIvMjIgMTA6NDEgcC7CoG0uIC0gKzkwIDUzMyA1NTUgMjYgOTE6IG5ldyBudW1iZXIhCjAzLzAyLzIyIDEyOjMwIHAuwqBtLiAtIOKAjis1MiAzMyA1NTU1IDcyMzYgc2FsacOzIGRlbCBncnVwbwo="
       },
       "contactsFile" => %{
         "io" =>
@@ -21,15 +21,13 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbersTest do
       inactive_contacts = [
         "Test User 3",
         "Test User 5",
-        "+1 (555) 232-6344",
         "+1 (555) 677-7421",
         "+375 29 555 65 46",
-        "+52 33 5555 1960",
+        "+52 1 33 5555 1960",
         "+56 9 5555 6203",
         "+57 555 7641021",
         "+7 911 555-72-50",
         "+7 916 555-87-72",
-        "+90 533 555 26 91",
         "+971 58 555 3254",
         "+972 50-555-6588"
       ]
@@ -50,12 +48,11 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbersTest do
         "+1 (555) 232-6344",
         "+1 (555) 677-7421",
         "+375 29 555 65 46",
-        "+52 33 5555 1960",
+        "+52 1 33 5555 1960",
         "+56 9 5555 6203",
         "+57 555 7641021",
         "+7 911 555-72-50",
         "+7 916 555-87-72",
-        "+90 533 555 26 91",
         "+971 58 555 3254",
         "+972 50-555-6588"
       ]
@@ -77,12 +74,11 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbersTest do
         "+1 (555) 677-7421",
         "+1 (555) 225-9853",
         "+375 29 555 65 46",
-        "+52 33 5555 1960",
+        "+52 1 33 5555 1960",
         "+56 9 5555 6203",
         "+57 555 7641021",
         "+7 911 555-72-50",
         "+7 916 555-87-72",
-        "+90 533 555 26 91",
         "+971 58 555 3254",
         "+972 50-555-6588"
       ]
@@ -90,10 +86,13 @@ defmodule WhatsappInactiveMembersHandler.PhoneNumber.PhoneNumbersTest do
       assert ^inactive_contacts = PhoneNumbers.find_inactive_contacts(params)
     end
 
-    test "it does not include a contact that only changed their number within the timeframe" do
+    test "it includes contacts that only changed their number within the timeframe but did nothing else" do
+      assert Enum.member?(PhoneNumbers.find_inactive_contacts(@params), "+971 58 555 3254")
+      refute Enum.member?(PhoneNumbers.find_inactive_contacts(@params), "+90 533 555 26 91")
     end
 
     test "returns Mexico contacts in a different format" do
+      assert Enum.member?(PhoneNumbers.find_inactive_contacts(@params), "+52 1 33 5555 1960")
     end
   end
 end
