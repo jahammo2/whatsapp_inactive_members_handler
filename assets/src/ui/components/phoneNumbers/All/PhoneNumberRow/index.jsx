@@ -11,7 +11,7 @@ function PhoneNumberRow(props) {
 
   return (
     <li className={ styles.Root }>
-      <div className={ styles.Value }>{ phoneNumber },</div>
+      <div className={ styles.Value }>@{ phoneNumber },</div>
     </li>
   );
 }
