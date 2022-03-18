@@ -1,7 +1,17 @@
 defmodule WhatsappInactiveMembersHandler.Contact.Contacts do
   def prepare_list_from_contents(contents) do
-    data = Poison.decode!(contents)
-    prepare_data(data)
+    cond do
+      String.contains?(contents, "\uFEFF") ->
+        contents
+        |> String.split("\uFEFF")
+        |> Enum.at(1)
+        |> Poison.decode!()
+        |> prepare_data
+
+      true ->
+        Poison.decode!(contents)
+        |> prepare_data
+    end
   end
 
   defp prepare_data(data) do
